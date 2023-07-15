@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 template<typename ...T>
 void ignoreUnused(T&&...) { }
@@ -16,12 +17,7 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of the 6 major primitive types available in C++  here:
  
- 
- 
- 
- 
- 
- 
+
  
  
  
@@ -60,6 +56,7 @@ video: Chapter 2 - Part 3
  */
 
 //2)
+
 void variableDeclarations()
 {
     //example:
@@ -84,15 +81,96 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-
+int a;
+float b;
+bool c;
+double d;
+char e;
+unsigned int f;
 /*
  2)
  */
+void varDeclare()
+{
+    a = 0;
+    b = 1.1;
+    c = true;
+    d = 2.3;
+    e = 'a';
+    f = 9;
+
+    ignoreUnused(a,b,c,d,e,f);
+}
 
 /*
  3)
  */
+void numOfDogs (int dogs )
+{
+    int totalDogs = 2;
 
+    ignoreUnused(totalDogs);
+}
+void runMarathon (int distance )
+{
+    int startWalk = 0;
+
+    ignoreUnused(startWalk);
+}
+int travelToJakarta (int days, int person)
+{
+    days = 1;
+    person = 1;
+    int priceOfHotel = 1000;
+    return priceOfHotel*days*person;
+}
+bool isEat (bool hadEat)
+{
+    bool eat = false;
+    eat = hadEat;
+    ignoreUnused(eat);
+    return {};
+}
+void playGames (std::string gameName)
+{
+    std::string phoneType = "Android";
+    ignoreUnused(phoneType);
+}
+float calcDiameter (int radius)
+{
+    float phi = 3.14;
+    ignoreUnused(radius);
+
+    return {};
+}
+double calcHouseArea (double length, double width)
+{
+    double area = length * width;
+    ignoreUnused(area);
+    
+    return {};
+}
+void recipeToCook (std::string menu)
+{
+    std::string seasoning = "salt";
+    ignoreUnused(seasoning);
+}
+int countOfstudent (char schoolType)
+{
+    int schoolStudent = 100;
+    int collegeStudent = 80;
+    ignoreUnused(schoolStudent,collegeStudent );
+
+    return 0;
+}
+int volumeOfBottle (std::string bottleType)
+{
+    int waterGallon = 1000;
+    int glassTumbler = 10;
+    ignoreUnused(waterGallon, glassTumbler);
+
+    return {};
+}
 /*
  4)
  */
@@ -141,27 +219,30 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    numOfDogs(6);
     //2)
-    
+    runMarathon(10);
     //3)
-    
+    auto cost = travelToJakarta(2,1);
     //4)
-    
+    auto eat = isEat(true);
     //5)
-    
+    playGames ("FIFA 23");
     //6)
-    
+    auto circle = calcDiameter(7);
     //7)
-    
+    auto luxuryHouse = calcHouseArea(400.0f, 500.0f);
     //8)
-    
+    recipeToCook("Nasi Goreng");
+
     //9)
+    auto collegeStudent = countOfstudent('C');
     
     //10)
+    auto waterGallon = volumeOfBottle("water gallon");
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, cost, eat, circle, luxuryHouse, collegeStudent, waterGallon);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
+
