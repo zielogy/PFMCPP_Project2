@@ -70,15 +70,33 @@ void variableDeclarations() {
   int number =
       2; // declaration of a variable named "number", that uses the primitive
          // type 'int', and the variable's initial value is '2'
-  float price = 20.f;
+  int numOfBottle = 4;
+  int phoneNumber = 823123124;
+    
+  float price = 20.0f;
+  float phi = 3.14;
+  float tempratureDegree = 32.1f;
+  
   double coin = 0.3;
+  double balanceAccount = 1024.234;
+  double gdp = 78240.10;
+    
   bool isTrue = true;
+  bool isHuman = true;
+  bool isAnimal = false;
+    
   char alphabet = 'a';
+  char initialName = 'b';
+  char houseBlock = 'c';
+    
   unsigned int someNum = 2;
+  unsigned int houseNumber = 9;
+  unsigned int numOfFan = 3;
 
   ignoreUnused(
-      number, price, coin, isTrue,
-      someNum); // passing each variable declared to the ignoreUnused() function
+      number, numOfBottle, phoneNumber, price, phi, tempratureDegree, coin, balanceAccount,
+      gdp, isTrue, isHuman, isAnimal, alphabet, initialName, houseBlock, someNum, 
+      houseNumber, numOfFan); // passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -100,23 +118,24 @@ bool rentACar(
 /*
  1)
  */
-void numOfDogs(int dogs) {
-  int totalDogs = 2;
+void numOfDogsOnShelter (int dogsType) {
+  std::string nameOfDog = "brenda";
+  int golden = 10;
 
-  ignoreUnused(totalDogs);
+  ignoreUnused(nameOfDog, golden);
 }
 /*
  2)
  */
-void runMarathon(int distance) {
-  int startWalk = 0;
+void runMarathon (int distance) {
+  int participant = 100;
 
-  ignoreUnused(startWalk);
+  ignoreUnused(participant);
 }
 /*
  3)
  */
-int travelToJakarta(int days, int person) {
+int travelToJakarta (int days, int person) {
   days = 1;
   person = 1;
   int priceOfHotel = 1000;
@@ -125,16 +144,16 @@ int travelToJakarta(int days, int person) {
 /*
  4)
  */
-bool isEat(bool hadEat) {
-  bool eat = false;
-  eat = hadEat;
-  ignoreUnused(eat);
-  return {};
+bool isEat (std::string foodMenu) {
+  std::string restaurant = "KFC";
+  
+  ignoreUnused(restaurant);
+  return true;
 }
 /*
  5)
  */
-void playGames(std::string gameName) {
+void playGames (std::string gameName) {
   std::string phoneType = "Android";
   ignoreUnused(phoneType);
 }
@@ -142,47 +161,47 @@ void playGames(std::string gameName) {
  6)
  */
 
-float calcDiameter(int radius) {
+float calcDiameter (int radius) {
   float phi = 3.14;
   ignoreUnused(radius);
 
-  return {};
+  return phi*radius*radius;
 }
 /*
  7)
  */
-double calcHouseArea(double length, double width) {
+double calcHouseArea (double length, double width) {
   double area = length * width;
   ignoreUnused(area);
 
-  return {};
+  return area;
 }
 /*
  8)
  */
-void recipeToCook(std::string menu) {
+void recipeToCook (std::string menu) {
   std::string seasoning = "salt";
   ignoreUnused(seasoning);
 }
 /*
  9)
  */
-int countOfstudent(char schoolType) {
+int countOfstudent (char schoolType) {
   int schoolStudent = 100;
   int collegeStudent = 80;
   ignoreUnused(schoolStudent, collegeStudent);
 
-  return {};
+  return collegeStudent;
 }
 /*
  10)
  */
-int volumeOfBottle(std::string bottleType) {
+int volumeOfBottle (std::string bottleType) {
   int waterGallon = 1000;
   int glassTumbler = 10;
   ignoreUnused(waterGallon, glassTumbler);
 
-  return {};
+  return waterGallon;
 }
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
@@ -206,27 +225,27 @@ int main() {
   auto carRented = rentACar(6, 2);
 
   // 1)
-  numOfDogs(6);
+  numOfDogsOnShelter (6);
   // 2)
-  runMarathon(10);
+  runMarathon (10);
   // 3)
   auto cost = travelToJakarta(2, 1);
   // 4)
-  auto eat = isEat(true);
+  auto eat = isEat ("Fried Chicken");
   // 5)
-  playGames("FIFA 23");
+  playGames ("FIFA 23");
   // 6)
   auto circle = calcDiameter(7);
   // 7)
   auto luxuryHouse = calcHouseArea(400.0f, 500.0f);
   // 8)
-  recipeToCook("Nasi Goreng");
+  recipeToCook ("Nasi Goreng");
   // 9)
   auto collegeStudent = countOfstudent('C');
   // 10)
   auto waterGallon = volumeOfBottle("water gallon");
 
-  ignoreUnused(carRented, cost, eat, circle, luxuryHouse, collegeStudent,
+  ignoreUnused (carRented, cost, eat, circle, luxuryHouse, collegeStudent,
                waterGallon);
   std::cout << "good to go!" << std::endl;
   return 0;
