@@ -68,40 +68,40 @@ the 'auto' keyword. c) pass the local variables to ignoreUnused() as you did in
 void variableDeclarations()
 {
   // example:
-  int number =
+    int number =
       2; // declaration of a variable named "number", that uses the primitive
          // type 'int', and the variable's initial value is '2'
-
-  // Integer
-  int numOfPerson = 3;
-  int numOfBottle = 4;
-  int phoneNumber = 823123124;
-
-  // Float
-  float price = 20.0f;
-  float phi = 3.14f;
-  float tempratureDegree = 32.1f;
-
-  // double
-  double coin = 0.3;
-  double balanceAccount = 1024.234;
-  double gdp = 78240.10;
-
-  // Boolean
-  bool isTrue = true;
-  bool isHuman = true;
-  bool isAnimal = false;
-
-  // Char
-  char alphabet = 'a';
-  char initialName = 'b';
-  char houseBlock = 'c';
-
-  unsigned int someNum = 2;
-  unsigned int houseNumber = 9;
-  unsigned int numOfFan = 3;
-
-  ignoreUnused(number, numOfPerson, numOfBottle, phoneNumber, price, phi,
+    
+    // Integer
+    int numOfPerson = 3;
+    int numOfBottle = 4;
+    int phoneNumber = 823123124;
+    
+    // Float
+    float price = 20.0f;
+    float phi = 3.14f;
+    float tempratureDegree = 32.1f;
+    
+    // double
+    double coin = 0.3;
+    double balanceAccount = 1024.234;
+    double gdp = 78240.10;
+    
+    // Boolean
+    bool isTrue = true;
+    bool isHuman = true;
+    bool isAnimal = false;
+    
+    // Char
+    char alphabet = 'a';
+    char initialName = 'b';
+    char houseBlock = 'c';
+    
+    unsigned int someNum = 2;
+    unsigned int houseNumber = 9;
+    unsigned int numOfFan = 3;
+    
+    ignoreUnused(number, numOfPerson, numOfBottle, phoneNumber, price, phi,
                tempratureDegree, coin, balanceAccount, gdp, isTrue, isHuman,
                isAnimal, alphabet, initialName, houseBlock, someNum,
                houseNumber,
@@ -114,15 +114,12 @@ void variableDeclarations()
  example:
  note: this example shows the result after completing steps 3-8
  */
-bool rentACar
-(
-    int rentalDuration,
-    int carType = 0) // function declaration with random number of arguments,
+bool rentACar(int rentalDuration, int carType = 0) // function declaration with random number of arguments,
                      // arbitrary number of arguments have default value
 {
-  ignoreUnused(rentalDuration, carType); // passing each function parameter to
+    ignoreUnused(rentalDuration, carType); // passing each function parameter to
                                          // the ignoreUnused() function
-  return {}; // if your function returns something other than void, add 'return
+    return {}; // if your function returns something other than void, add 'return
              // {};' at the end of it.
 }
 
@@ -221,34 +218,35 @@ int volumeOfBottle(std::string bottleType)
  Wait for my code review.
  */
 
-int main() {
-  // example of calling that function, storing the value, and passing it to
-  // ignoreUnused at the end of main()
-  auto carRented = rentACar(6, 2);
-
-  // 1)
-  numOfDogsOnShelter(6);
-  // 2)
-  runMarathon(10, "Monaco");
-  // 3)
-  auto cost = travelToJakarta(2, 1);
-  // 4)
-  auto eat = isEat("Fried Chicken");
-  // 5)
-  playGames("FIFA 23");
-  // 6)
-  auto circle = calcDiameter(7, 3.14f);
-  // 7)
-  auto luxuryHouse = calcHouseArea(400.00, 500.00);
-  // 8)
-  recipeToCook("Nasi Goreng");
-  // 9)
-  auto collegeStudent = countOfstudent('C');
-  // 10)
-  auto waterGallon = volumeOfBottle("water gallon");
-
-  ignoreUnused(carRented, cost, eat, circle, luxuryHouse, collegeStudent,
+int main() 
+{
+    // example of calling that function, storing the value, and passing it to
+    // ignoreUnused at the end of main()
+    auto carRented = rentACar(6, 2);
+    
+    // 1)
+    numOfDogsOnShelter(6);
+    // 2)
+    runMarathon(10, "Monaco");
+    // 3)
+    auto cost = travelToJakarta(2, 1);
+    // 4)
+    auto eat = isEat("Fried Chicken");
+    // 5)
+    playGames("FIFA 23");
+    // 6)
+    auto circle = calcDiameter(7, 3.14f);
+    // 7)
+    auto luxuryHouse = calcHouseArea(400.00, 500.00);
+    // 8)
+    recipeToCook("Nasi Goreng");
+    // 9)
+    auto collegeStudent = countOfstudent('C');
+    // 10)
+    auto waterGallon = volumeOfBottle("water gallon");
+    
+    ignoreUnused(carRented, cost, eat, circle, luxuryHouse, collegeStudent,
                waterGallon);
-  std::cout << "good to go!" << std::endl;
-  return 0;
+    std::cout << "good to go!" << std::endl;
+    return 0;
 }
