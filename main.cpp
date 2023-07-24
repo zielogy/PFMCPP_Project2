@@ -65,38 +65,48 @@ the 'auto' keyword. c) pass the local variables to ignoreUnused() as you did in
 
 // 2)
 
-void variableDeclarations() {
+void variableDeclarations()
+{
   // example:
   int number =
       2; // declaration of a variable named "number", that uses the primitive
          // type 'int', and the variable's initial value is '2'
+
+  // Integer
+  int numOfPerson = 3;
   int numOfBottle = 4;
   int phoneNumber = 823123124;
-    
+
+  // Float
   float price = 20.0f;
-  float phi = 3.14;
+  float phi = 3.14f;
   float tempratureDegree = 32.1f;
-  
+
+  // double
   double coin = 0.3;
   double balanceAccount = 1024.234;
   double gdp = 78240.10;
-    
+
+  // Boolean
   bool isTrue = true;
   bool isHuman = true;
   bool isAnimal = false;
-    
+
+  // Char
   char alphabet = 'a';
   char initialName = 'b';
   char houseBlock = 'c';
-    
+
   unsigned int someNum = 2;
   unsigned int houseNumber = 9;
   unsigned int numOfFan = 3;
 
-  ignoreUnused(
-      number, numOfBottle, phoneNumber, price, phi, tempratureDegree, coin, balanceAccount,
-      gdp, isTrue, isHuman, isAnimal, alphabet, initialName, houseBlock, someNum, 
-      houseNumber, numOfFan); // passing each variable declared to the ignoreUnused() function
+  ignoreUnused(number, numOfPerson, numOfBottle, phoneNumber, price, phi,
+               tempratureDegree, coin, balanceAccount, gdp, isTrue, isHuman,
+               isAnimal, alphabet, initialName, houseBlock, someNum,
+               houseNumber,
+               numOfFan); // passing each variable declared to the
+                          // ignoreUnused() function
 }
 
 /*
@@ -104,7 +114,8 @@ void variableDeclarations() {
  example:
  note: this example shows the result after completing steps 3-8
  */
-bool rentACar(
+bool rentACar
+(
     int rentalDuration,
     int carType = 0) // function declaration with random number of arguments,
                      // arbitrary number of arguments have default value
@@ -118,90 +129,81 @@ bool rentACar(
 /*
  1)
  */
-void numOfDogsOnShelter (int dogsType) {
-  std::string nameOfDog = "brenda";
-  int golden = 10;
-
-  ignoreUnused(nameOfDog, golden);
+void numOfDogsOnShelter(int dogsType)
+{ 
+    ignoreUnused(dogsType);
 }
 /*
  2)
  */
-void runMarathon (int distance) {
-  int participant = 100;
-
-  ignoreUnused(participant);
+void runMarathon(int distance, std::string place) 
+{
+    ignoreUnused(distance, place);
 }
 /*
  3)
  */
-int travelToJakarta (int days, int person) {
-  days = 1;
-  person = 1;
-  int priceOfHotel = 1000;
-  return priceOfHotel * days * person;
+int travelToJakarta(int days, int person) 
+{
+    ignoreUnused(days, person);
+    return {};
 }
 /*
  4)
  */
-bool isEat (std::string foodMenu) {
-  std::string restaurant = "KFC";
-  
-  ignoreUnused(restaurant);
-  return true;
+bool isEat(std::string foodMenu)
+{
+    ignoreUnused(foodMenu);
+    return {};
 }
 /*
  5)
  */
-void playGames (std::string gameName) {
-  std::string phoneType = "Android";
-  ignoreUnused(phoneType);
+void playGames(std::string gameName) 
+{ 
+    ignoreUnused(gameName); 
 }
 /*
  6)
  */
 
-float calcDiameter (int radius) {
-  float phi = 3.14;
-  ignoreUnused(radius);
-
-  return phi*radius*radius;
+float calcDiameter(int radius, float phi) 
+{
+    ignoreUnused(radius, phi);
+    return {};
 }
 /*
  7)
  */
-double calcHouseArea (double length, double width) {
-  double area = length * width;
-  ignoreUnused(area);
-
-  return area;
+double calcHouseArea(double length, double width) 
+{
+    ignoreUnused(length, width);
+    return {};
 }
 /*
  8)
  */
-void recipeToCook (std::string menu) {
-  std::string seasoning = "salt";
-  ignoreUnused(seasoning);
+void recipeToCook(std::string menu)
+{ 
+    ignoreUnused(menu); 
 }
 /*
  9)
  */
-int countOfstudent (char schoolType) {
-  int schoolStudent = 100;
-  int collegeStudent = 80;
-  ignoreUnused(schoolStudent, collegeStudent);
+int countOfstudent(char schoolType) 
+{
+    ignoreUnused(schoolType);
 
-  return collegeStudent;
+    return {};
 }
 /*
  10)
  */
-int volumeOfBottle (std::string bottleType) {
-  int waterGallon = 1000;
-  int glassTumbler = 10;
-  ignoreUnused(waterGallon, glassTumbler);
+int volumeOfBottle(std::string bottleType) 
+{
+    ignoreUnused(bottleType);
 
-  return waterGallon;
+    return {};
 }
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
@@ -225,27 +227,27 @@ int main() {
   auto carRented = rentACar(6, 2);
 
   // 1)
-  numOfDogsOnShelter (6);
+  numOfDogsOnShelter(6);
   // 2)
-  runMarathon (10);
+  runMarathon(10, "Monaco");
   // 3)
   auto cost = travelToJakarta(2, 1);
   // 4)
-  auto eat = isEat ("Fried Chicken");
+  auto eat = isEat("Fried Chicken");
   // 5)
-  playGames ("FIFA 23");
+  playGames("FIFA 23");
   // 6)
-  auto circle = calcDiameter(7);
+  auto circle = calcDiameter(7, 3.14f);
   // 7)
-  auto luxuryHouse = calcHouseArea(400.0f, 500.0f);
+  auto luxuryHouse = calcHouseArea(400.00, 500.00);
   // 8)
-  recipeToCook ("Nasi Goreng");
+  recipeToCook("Nasi Goreng");
   // 9)
   auto collegeStudent = countOfstudent('C');
   // 10)
   auto waterGallon = volumeOfBottle("water gallon");
 
-  ignoreUnused (carRented, cost, eat, circle, luxuryHouse, collegeStudent,
+  ignoreUnused(carRented, cost, eat, circle, luxuryHouse, collegeStudent,
                waterGallon);
   std::cout << "good to go!" << std::endl;
   return 0;
